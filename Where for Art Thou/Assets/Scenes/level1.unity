@@ -442,6 +442,10 @@ Prefab:
       propertyPath: FoodPreFab
       value: 
       objectReference: {fileID: 562387807}
+    - target: {fileID: 1350652709455624, guid: 97a1cbffb633e1a45863daf414bf9695, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 97a1cbffb633e1a45863daf414bf9695, type: 2}
   m_IsPrefabParent: 0
@@ -595,7 +599,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &974246450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1288,6 +1292,10 @@ Prefab:
       propertyPath: target
       value: 
       objectReference: {fileID: 1345322752}
+    - target: {fileID: 1651430788175610, guid: c1f24cd4d3834bd4fa68012d79715d45, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c1f24cd4d3834bd4fa68012d79715d45, type: 2}
   m_IsPrefabParent: 0
@@ -1414,6 +1422,10 @@ Prefab:
       propertyPath: FoodPreFab
       value: 
       objectReference: {fileID: 562387807}
+    - target: {fileID: 1402863688534516, guid: 9d7e590d4a4601941b096bebd1ced969, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9d7e590d4a4601941b096bebd1ced969, type: 2}
   m_IsPrefabParent: 0
