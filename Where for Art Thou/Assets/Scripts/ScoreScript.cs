@@ -19,4 +19,9 @@ public class ScoreScript : MonoBehaviour
     {
         score.text = "Score:" + ScoreValue; 
 	}
+
+    public void AddScore()
+    {
+        ScoreValue++;
+    }
 }

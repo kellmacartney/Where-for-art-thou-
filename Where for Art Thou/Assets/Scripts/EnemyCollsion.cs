@@ -21,21 +21,21 @@ public class EnemyCollsion : MonoBehaviour
 
     void OnCollisionEnter2D (Collision2D col)
     {
-        if (col.gameObject.name == ("Buggy") || gameObject.tag == ("Kangaroo"))
+        if (col.gameObject.CompareTag("Player") || gameObject.tag == ("Kangaroo"))
         {
             
             Instantiate(FoodPreFab, col.transform.position, col.transform.rotation);
             Destroy(gameObject);
            
         }
-        if (col.gameObject.name == ("Buggy") || gameObject.tag == ("Boar"))
+        if (col.gameObject.CompareTag("Player") || gameObject.tag == ("Boar"))
         {
             
             Instantiate(FoodPreFab, col.transform.position, col.transform.rotation);
             Destroy(gameObject);
         }
 
-        if (col.gameObject.name == ("Buggy") || gameObject.tag == ("Bull"))
+        if (col.gameObject.CompareTag("Player") || gameObject.tag == ("Bull"))
         {
             
             Instantiate(FoodPreFab, col.transform.position, col.transform.rotation);
