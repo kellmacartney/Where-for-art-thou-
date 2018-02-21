@@ -31,11 +31,15 @@ public class GameManager : MonoBehaviour
 
     }
 
+    private void Update()
+    {
+        scoreText.text = "Score:" + ScoreValue.ToString();
+    }
 
     public void AddScore(int points)
     {
-        ScoreValue = ScoreValue + points;
-        scoreText.text = "Score:" + ScoreValue;
+        ScoreValue += points;
+       
     }
 
     private void Start()

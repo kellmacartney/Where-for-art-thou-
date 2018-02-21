@@ -19,22 +19,25 @@ public class FoodScript : MonoBehaviour
 
     }
 
-    void OnCollisionEnter(Collision col)
+    void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.CompareTag("Player"))
+        if (col.gameObject.CompareTag("Player") || boarFood == (true))
         {
+            print("yeet");
             GameManager.instance.AddScore(15);
             Destroy(gameObject);
         }
 
         if (col.gameObject.CompareTag("Player") || bullFood == (true))
         {
+            print("yeet");
             GameManager.instance.AddScore(15);
             Destroy(gameObject);
         }
 
         if (col.gameObject.CompareTag("Player")  || kangFood == (true))
         {
+            print("yeet");
             GameManager.instance.AddScore(15);
             Destroy(gameObject);
         }

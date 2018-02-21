@@ -4,16 +4,32 @@ using UnityEngine;
 
 public class MovementConstraints : MonoBehaviour
 {
-    public float buggySpeed;
-    public Vector2 xCon;
-    public Vector2 yCon;
-    Vector2 wantPos;
+    public float baseSpeed;
+    public float currSpeed;
+    public float changeSpeed;
 
-	
+ 
 	// Update is called once per frame
 	void Update ()
     {
-        wantPos += new Vector2(Input.GetAxis("Horizontal") * buggySpeed * Time.deltaTime, Input.GetAxis("Vertical") * buggySpeed * Time.deltaTime);
-        transform.position = new Vector3(Mathf.Clamp(wantPos.x, xCon.x, xCon.y), Mathf.Clamp(wantPos.y, yCon.x, yCon.y), transform.position.z);
+        transform.Translate(Vector3.right * currSpeed * Time.deltaTime);
+        transform.position = new Vector2(Mathf.Clamp(transform.position.x, -6.26f, -5.26f), transform.position.y);
 	}
+
+    void Movement()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+            currSpeed -= baseSpeed * changeSpeed;
+
+        if (Input.GetKeyUp(KeyCode.LeftArrow))
+            currSpeed = baseSpeed;
+
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+            currSpeed += baseSpeed * changeSpeed;
+
+        if (Input.GetKeyUp(KeyCode.RightArrow))
+            currSpeed = baseSpeed;
+
+    }
+
 }

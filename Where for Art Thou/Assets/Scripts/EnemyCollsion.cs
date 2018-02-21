@@ -5,12 +5,12 @@ using UnityEngine;
 public class EnemyCollsion : MonoBehaviour
 {
     public GameObject FoodPreFab;
-    FoodScript Score;  
+    public FoodScript Score;  
 
 	// Use this for initialization
 	void Start ()
     {
-		
+        Score = GetComponent<FoodScript>();
 	}
 	
 	// Update is called once per frame
@@ -19,25 +19,25 @@ public class EnemyCollsion : MonoBehaviour
 		
 	}
 
-    void OnCollisionEnter2D (Collision2D col)
+    void OnTriggerEnter2D (Collider2D col)
     {
         if (col.gameObject.CompareTag("Player") || gameObject.tag == ("Kangaroo"))
         {
-            
+            Score.kangFood = true;
             Instantiate(FoodPreFab, col.transform.position, col.transform.rotation);
             Destroy(gameObject);
            
         }
         if (col.gameObject.CompareTag("Player") || gameObject.tag == ("Boar"))
         {
-            
+            Score.boarFood = true;
             Instantiate(FoodPreFab, col.transform.position, col.transform.rotation);
             Destroy(gameObject);
         }
 
         if (col.gameObject.CompareTag("Player") || gameObject.tag == ("Bull"))
         {
-            
+            Score.bullFood = true;
             Instantiate(FoodPreFab, col.transform.position, col.transform.rotation);
             Destroy(gameObject);
 
@@ -45,6 +45,7 @@ public class EnemyCollsion : MonoBehaviour
 
         if(col.gameObject.name == ("BulletPreFab"))
         {
+            Instantiate(FoodPreFab, col.transform.position, col.transform.rotation);
             Destroy(gameObject);
 
         }
