@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class GameManager : MonoBehaviour
 {
@@ -10,6 +12,7 @@ public class GameManager : MonoBehaviour
     public Text scoreText;
 
     public static GameManager instance = null;
+    public bool loadCredits;
 
     //Awake is always called before any Start functions
     void Awake()
@@ -33,7 +36,14 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        if(scoreText != null)    
         scoreText.text = "Score:" + ScoreValue.ToString();
+
+        if (ScoreValue >= 50f && !loadCredits)
+        {
+            loadCredits = true;
+            SceneManager.LoadScene("Credits");
+        }
     }
 
     public void AddScore(int points)
