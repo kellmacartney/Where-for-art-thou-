@@ -21,24 +21,24 @@ public class FoodScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.CompareTag("Player") || boarFood == (true))
+        if (col.gameObject.CompareTag("Player") && boarFood == (true))
         {
             print("yeet");
             GameManager.instance.AddScore(15);
             Destroy(gameObject);
         }
 
-        if (col.gameObject.CompareTag("Player") || bullFood == (true))
+        if (col.gameObject.CompareTag("Player") && bullFood == (true))
         {
-            print("yeet");
-            GameManager.instance.AddScore(15);
+            print("yeet2");
+            GameManager.instance.AddScore(20);
             Destroy(gameObject);
         }
 
-        if (col.gameObject.CompareTag("Player")  || kangFood == (true))
+        if (col.gameObject.CompareTag("Player") && kangFood == (true))
         {
-            print("yeet");
-            GameManager.instance.AddScore(15);
+            print("yeet3");
+            GameManager.instance.AddScore(30);
             Destroy(gameObject);
         }
 

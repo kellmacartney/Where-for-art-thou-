@@ -42,6 +42,7 @@ public class BuggyShoot : MonoBehaviour
 
     public void ShootBullet()
     {//generates bullet
-        Instantiate(BulletPreFab, spawnPoint.position, Quaternion.identity);
+        GameObject newBullet = (GameObject)Instantiate(BulletPreFab, spawnPoint.position, Quaternion.identity);
+        Destroy(newBullet, newBullet.GetComponent<BulletScript>().LifeTime);
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     public GameObject[] Enemies;
-    public Vector3 spawnboundaries;
+    public Transform spawnPoint;
 
     int EnemyGenerator;
     public int StartWait;
@@ -14,7 +14,7 @@ public class EnemySpawner : MonoBehaviour
     public float SpawnMostWait;
     public float SpawnLeastWait;
 
-    public bool Stop;
+    public bool isSpawning = true;
 
 
 
@@ -35,17 +35,13 @@ public class EnemySpawner : MonoBehaviour
     {// function to generate random enemy spawning within a set area
         yield return new WaitForSeconds(StartWait);
 
-        while (!Stop)
-
+      
+        if(isSpawning)
         {
             EnemyGenerator = Random.Range(0, Enemies.Length);
-          //  Vector3 spawnposition = new Vector2(transform.position.x, transform.position.y);
-            Vector3 spawnposition = new Vector2(Random.Range(-spawnboundaries.x, spawnboundaries.x), Random.Range(-spawnboundaries.y, spawnboundaries.y));
-            Instantiate(Enemies[EnemyGenerator], spawnposition, gameObject.transform.rotation);
+             Instantiate(Enemies[EnemyGenerator], spawnPoint.position, gameObject.transform.rotation);
 
-            
-
-            yield return new WaitForSeconds(SpawnWait);
         }
+        StartCoroutine(Spawner());
     }
 }

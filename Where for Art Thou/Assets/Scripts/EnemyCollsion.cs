@@ -21,32 +21,34 @@ public class EnemyCollsion : MonoBehaviour
 
     void OnTriggerEnter2D (Collider2D col)
     {
-        if (col.gameObject.CompareTag("Player") || gameObject.tag == ("Kangaroo"))
+        if (col.gameObject.CompareTag("Player") && gameObject.tag == ("Kangaroo"))
         {
-            Score.kangFood = true;
-            Instantiate(FoodPreFab, col.transform.position, col.transform.rotation);
+            GameObject newFood = (GameObject)Instantiate(FoodPreFab, col.transform.position, col.transform.rotation);
+            newFood.GetComponent<FoodScript>().kangFood = true;
             Destroy(gameObject);
            
         }
-        if (col.gameObject.CompareTag("Player") || gameObject.tag == ("Boar"))
+        if (col.gameObject.CompareTag("Player") && gameObject.tag == ("Boar"))
         {
-            Score.boarFood = true;
-            Instantiate(FoodPreFab, col.transform.position, col.transform.rotation);
+            GameObject newFood = (GameObject)Instantiate(FoodPreFab, col.transform.position, col.transform.rotation);
+            newFood.GetComponent<FoodScript>().boarFood = true;
             Destroy(gameObject);
         }
 
-        if (col.gameObject.CompareTag("Player") || gameObject.tag == ("Bull"))
+        if (col.gameObject.CompareTag("Player") && gameObject.tag == ("Bull"))
         {
-            Score.bullFood = true;
-            Instantiate(FoodPreFab, col.transform.position, col.transform.rotation);
+           
+            GameObject newFood = (GameObject)Instantiate(FoodPreFab, col.transform.position, col.transform.rotation);
+            newFood.GetComponent<FoodScript>().bullFood = true;
             Destroy(gameObject);
 
         }
 
-        if(col.gameObject.name == ("BulletPreFab"))
+        if(col.gameObject.CompareTag("Bullet"))
         {
             Instantiate(FoodPreFab, col.transform.position, col.transform.rotation);
             Destroy(gameObject);
+            Destroy(col.gameObject);
 
         }
 

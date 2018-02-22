@@ -137,7 +137,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 30701127}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -534, y: 334, z: 0}
+  m_LocalPosition: {x: -761, y: 371.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1009818342}
@@ -224,7 +224,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 162818609}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 376.52112, y: 291.28198, z: 0}
+  m_LocalPosition: {x: 537.343, y: 324.01953, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2061051879}
@@ -593,7 +593,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &974246450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -609,12 +609,12 @@ MonoBehaviour:
   - {fileID: 1874089506}
   - {fileID: 964232575}
   - {fileID: 1148748922}
-  spawnboundaries: {x: 9, y: 3, z: 0}
-  StartWait: 10
+  spawnPoint: {fileID: 974246451}
+  StartWait: 2
   SpawnWait: 8
   SpawnMostWait: 5
   SpawnLeastWait: 8
-  Stop: 0
+  isSpawning: 1
 --- !u!4 &974246451
 Transform:
   m_ObjectHideFlags: 0
@@ -716,7 +716,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1009818338}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 534, y: 334, z: 0}
+  m_LocalPosition: {x: 761, y: 371.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 30701128}
@@ -1364,6 +1364,11 @@ Prefab:
       propertyPath: target
       value: 
       objectReference: {fileID: 1345322752}
+    - target: {fileID: 212974559832697520, guid: c1f24cd4d3834bd4fa68012d79715d45,
+        type: 2}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c1f24cd4d3834bd4fa68012d79715d45, type: 2}
   m_IsPrefabParent: 0
@@ -1689,12 +1694,12 @@ MonoBehaviour:
   Enemies:
   - {fileID: 997492163}
   - {fileID: 967765005}
-  spawnboundaries: {x: 1, y: 3, z: 0}
+  spawnPoint: {fileID: 2064469724}
   StartWait: 10
   SpawnWait: 8
   SpawnMostWait: 12
   SpawnLeastWait: 7
-  Stop: 0
+  isSpawning: 1
 --- !u!4 &2064469724
 Transform:
   m_ObjectHideFlags: 0
