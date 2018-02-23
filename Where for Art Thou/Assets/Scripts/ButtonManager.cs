@@ -17,12 +17,6 @@ public class ButtonManager : MonoBehaviour
         Application.Quit();
     }
 
-    public void EndGame(string LevelToLoad)
-    {
-        if(scoretally.ScoreValue >= 100)
-        {
-            SceneManager.LoadScene("Credits");
-        }
-    }
+    
 
 }

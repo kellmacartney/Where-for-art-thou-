@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instance = null;
     public bool loadCredits;
+    public float nextLevel; 
 
     //Awake is always called before any Start functions
     void Awake()
@@ -39,7 +40,7 @@ public class GameManager : MonoBehaviour
         if(scoreText != null)    
         scoreText.text = "Score:" + ScoreValue.ToString();
 
-        if (ScoreValue >= 50f && !loadCredits)
+        if (ScoreValue >= 200f && !loadCredits)
         {
             loadCredits = true;
             SceneManager.LoadScene("Credits");

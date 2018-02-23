@@ -12,7 +12,7 @@ public class CreditsScript : MonoBehaviour
 	void Start ()
     {
 
-        playerScore.GetComponent<Text>().text = "Your Score Is: " + GameManager.instance.ScoreValue.ToString();
+       // playerScore.GetComponent<Text>().text = "Your Score Is: " + GameManager.instance.ScoreValue.ToString();
     }
 	
 	// Update is called once per frame
