@@ -5,9 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ButtonManager : MonoBehaviour
 {
-    ScoreScript scoretally;
-
-    public void Loadlevel(string NewGamelvl)
+        public void Loadlevel(string NewGamelvl)
     {
         SceneManager.LoadScene(NewGamelvl);
     }

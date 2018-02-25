@@ -32,7 +32,7 @@ public class EnemyCollsion : MonoBehaviour
         if (col.gameObject.CompareTag("Player") && gameObject.tag == ("Kangaroo"))
         {
             GameManager.instance.sfxSource.PlayOneShot(foodSpawn);
-            GameManager.instance.health++;
+            GameManager.instance.AddHP(1);
             GameManager.instance.sfxSource.PlayOneShot(KangarooDeath);
             GameObject newFood = (GameObject)Instantiate(FoodPreFab, col.transform.position, col.transform.rotation);
             newFood.GetComponent<FoodScript>().kangFood = true;
@@ -41,7 +41,8 @@ public class EnemyCollsion : MonoBehaviour
         }
         if (col.gameObject.CompareTag("Player") && gameObject.tag == ("Boar"))
         {
-            GameManager.instance.health++;
+            GameManager.instance.sfxSource.PlayOneShot(foodSpawn);
+            GameManager.instance.AddHP(1);
             GameManager.instance.sfxSource.PlayOneShot(BoarDeath);
             GameObject newFood = (GameObject)Instantiate(FoodPreFab, col.transform.position, col.transform.rotation);
             newFood.GetComponent<FoodScript>().boarFood = true;
@@ -50,7 +51,8 @@ public class EnemyCollsion : MonoBehaviour
 
         if (col.gameObject.CompareTag("Player") && gameObject.tag == ("Bull"))
         {
-            GameManager.instance.health++;
+            GameManager.instance.sfxSource.PlayOneShot(foodSpawn);
+            GameManager.instance.AddHP(1);
             GameManager.instance.sfxSource.PlayOneShot(BullDeath);
             GameObject newFood = (GameObject)Instantiate(FoodPreFab, col.transform.position, col.transform.rotation);
             newFood.GetComponent<FoodScript>().bullFood = true;
@@ -63,7 +65,8 @@ public class EnemyCollsion : MonoBehaviour
             if (col.gameObject.CompareTag("Bullet") && gameObject.tag == "Kangaroo")
 
             {
-                GameManager.instance.sfxSource.PlayOneShot(KangarooDeath);
+                 GameManager.instance.sfxSource.PlayOneShot(foodSpawn);
+                 GameManager.instance.sfxSource.PlayOneShot(KangarooDeath);
                 GameManager.instance.sfxSource.PlayOneShot(Bullet);
                 Instantiate(FoodPreFab, col.transform.position, col.transform.rotation);
                 Destroy(gameObject);
@@ -73,7 +76,8 @@ public class EnemyCollsion : MonoBehaviour
 
             if (col.gameObject.CompareTag("Bullet") && gameObject.tag == "Bull")
             {
-                GameManager.instance.sfxSource.PlayOneShot(BullDeath);
+            GameManager.instance.sfxSource.PlayOneShot(foodSpawn);
+            GameManager.instance.sfxSource.PlayOneShot(BullDeath);
                 GameManager.instance.sfxSource.PlayOneShot(Bullet);
                 Instantiate(FoodPreFab, col.transform.position, col.transform.rotation);
                 Destroy(gameObject);
@@ -83,7 +87,9 @@ public class EnemyCollsion : MonoBehaviour
 
             if (col.gameObject.CompareTag("Bullet") && gameObject.tag == "Boar")
             {
-                GameManager.instance.sfxSource.PlayOneShot(KangarooDeath);
+
+            GameManager.instance.sfxSource.PlayOneShot(foodSpawn);
+            GameManager.instance.sfxSource.PlayOneShot(KangarooDeath);
                 GameManager.instance.sfxSource.PlayOneShot(Bullet);
                 Instantiate(FoodPreFab, col.transform.position, col.transform.rotation);
                 Destroy(gameObject);

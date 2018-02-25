@@ -9,9 +9,10 @@ public class GameManager : MonoBehaviour
 {
     public int ScoreValue = 0;
     public Text scoreText;
-    public int health = 3;  
+    public int health = 0;  
     public Text hitText;
-    public float nextLevel; 
+    public float nextLevel;
+    public bool inGameOver;
     
     
     public AudioSource BGsource;
@@ -28,9 +29,7 @@ public class GameManager : MonoBehaviour
     //Awake is always called before any Start functions
     void Awake()
     {
-        ScoreValue = 0;
-        scoreText = GameObject.Find("ScoreText").GetComponent<Text>();
-        hitText = GameObject.Find("healthText").GetComponent<Text>();
+        //InitLevel();
 
         // Destroy(SoundManager.instance);
 
@@ -59,18 +58,11 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene("Credits");
         }
 
-        if (scoreText != null)
-            scoreText.text = "Score:" + ScoreValue.ToString();
 
-       
-
-       if (hitText != null)
-       hitText.text = "Hits taken: " + health.ToString();
-
-        if (health >= gameOver)
+        if ( !inGameOver && health >= gameOver)
       {
             SceneManager.LoadScene("GameOver");
-            
+            inGameOver = true;
             loadCredits = false;
             
       }
@@ -85,13 +77,47 @@ public class GameManager : MonoBehaviour
     public void AddScore(int points)
     {
         ScoreValue += points;
-
+        UpdateTextObjects();
     }
+
+    public void AddHP(int points)
+    {
+        health += points;
+        UpdateTextObjects();
+    }
+
+    public void UpdateTextObjects()
+    {
+        scoreText.text = "Score:" + ScoreValue;
+        hitText.text = "Hits taken: " + health;
+    }
+
 
     private void Start()
     {
         
     }
 
-    
+    public void InitLevel()
+    {
+        inGameOver = false; 
+        ResetScore();
+        AssignTextObjects();
+        UpdateTextObjects();
+        Debug.Log("Level Init");
+
+    }
+
+    public void ResetScore()
+    {
+        ScoreValue = 0;
+        health = 0;
+    }
+
+    public void AssignTextObjects()
+    {
+        scoreText = GameObject.Find("ScoreText").GetComponent<Text>();
+        hitText = GameObject.Find("healthText").GetComponent<Text>();
+    }
+
 }

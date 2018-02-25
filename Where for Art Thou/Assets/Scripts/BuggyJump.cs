@@ -23,7 +23,7 @@ public class BuggyJump : MonoBehaviour
         groundPos = transform.position;
         groundHeight = transform.position.y;
         maxJumpHeight = transform.position.y + maxJumpHeight;
-        GameManager.instance.sfxSource.PlayOneShot(driving);
+        GameManager.instance.BGsource.PlayOneShot(driving);
     }
 
 

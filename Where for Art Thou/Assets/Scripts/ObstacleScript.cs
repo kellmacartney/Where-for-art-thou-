@@ -26,14 +26,14 @@ public class ObstacleScript : MonoBehaviour
         if (imp.gameObject.CompareTag("Player") && gameObject.tag == ("Rock"))
         {
             GameManager.instance.sfxSource.PlayOneShot(rockImpact);
-            GameManager.instance.health++ ;
+            GameManager.instance.AddHP(1);
             Destroy(gameObject);
         }
 
         if (imp.gameObject.CompareTag("Player") && gameObject.tag == ("Fence"))
         {
             GameManager.instance.sfxSource.PlayOneShot(fenceImpact);
-            GameManager.instance.health++;
+            GameManager.instance.AddHP(1);
             gameObject.SetActive(false);
         }
 
