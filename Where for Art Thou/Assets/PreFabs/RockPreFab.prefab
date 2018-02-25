@@ -21,13 +21,15 @@ GameObject:
   - component: {fileID: 4417049293239316}
   - component: {fileID: 212119386636155648}
   - component: {fileID: 61588864302569958}
+  - component: {fileID: 114432980066625494}
+  - component: {fileID: 114653952556985686}
   m_Layer: 0
   m_Name: RockPreFab
-  m_TagString: Untagged
+  m_TagString: Rock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4417049293239316
 Transform:
   m_ObjectHideFlags: 1
@@ -35,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1566617196214744}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.07, y: -7.62, z: 0}
+  m_LocalPosition: {x: 2.07, y: -7.74, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -53,7 +55,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.027439997, y: 0.0072211027}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -64,8 +66,36 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.32, y: 0.32}
+  m_Size: {x: 0.26512, y: 0.20157504}
   m_EdgeRadius: 0
+--- !u!114 &114432980066625494
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1566617196214744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c917a208d83810c4b99089cbb626019d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rockImpact: {fileID: 8300000, guid: 05c9bec5fb6b47744bb85b4e39325622, type: 3}
+  fenceImpact: {fileID: 8300000, guid: af1655b8a7cc55b41b8a93b63aad3635, type: 3}
+--- !u!114 &114653952556985686
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1566617196214744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44e57411004732e4ea175f0b893bcc6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemySpeed: 3
+  bullWalk: {fileID: 0}
+  boarWalk: {fileID: 0}
+  KangarooWalk: {fileID: 0}
 --- !u!212 &212119386636155648
 SpriteRenderer:
   m_ObjectHideFlags: 1

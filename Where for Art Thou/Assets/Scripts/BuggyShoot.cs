@@ -19,7 +19,7 @@ public class BuggyShoot : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetKey(KeyCode.LeftShift))
         {
             isfiring = true;
         }
@@ -44,7 +44,7 @@ public class BuggyShoot : MonoBehaviour
     public void ShootBullet()
     {//generates bullet
 
-        SoundManager.instance.PlayOneShot(fire);
+        GameManager.instance.sfxSource.PlayOneShot(fire);
         GameObject newBullet = (GameObject)Instantiate(BulletPreFab, spawnPoint.position, Quaternion.identity);
         Destroy(newBullet, newBullet.GetComponent<BulletScript>().LifeTime);
     }

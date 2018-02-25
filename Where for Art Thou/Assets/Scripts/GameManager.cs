@@ -9,16 +9,26 @@ public class GameManager : MonoBehaviour
 {
     public int ScoreValue = 0;
     public Text scoreText;
+    public int health = 3;  
+    public Text hitText;
+    
+    
+    public AudioSource BGsource;
+    public AudioSource sfxSource;
+    public AudioClip BackgroundMusic; 
+    
 
 
     public static GameManager instance = null;
     public bool loadCredits;
-    public float nextLevel;
+    public float gameOver;
     
 
     //Awake is always called before any Start functions
     void Awake()
     {
+        
+       // Destroy(SoundManager.instance);
        
         //Check if instance already exists
         if (instance == null)
@@ -39,6 +49,8 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        
+
         if (scoreText != null)
             scoreText.text = "Score:" + ScoreValue.ToString();
 
@@ -47,6 +59,21 @@ public class GameManager : MonoBehaviour
             loadCredits = true;
             SceneManager.LoadScene("Credits");
         }
+
+       if (hitText != null)
+       hitText.text = "Hits taken: " + health.ToString();
+
+        if (health >= gameOver)
+      {
+            SceneManager.LoadScene("GameOver");
+            health = 0;
+      }
+    }
+
+    public void PlayOneShot(AudioClip Clip)
+    {
+        BGsource.clip = Clip;
+        BGsource.Play();
     }
 
     public void AddScore(int points)
@@ -57,8 +84,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        
         scoreText = GameObject.Find("ScoreText").GetComponent<Text>();
+        hitText = GameObject.Find("healthText").GetComponent<Text>(); 
     }
 
     

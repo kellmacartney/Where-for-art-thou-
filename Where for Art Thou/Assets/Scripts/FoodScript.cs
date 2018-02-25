@@ -5,6 +5,7 @@ using UnityEngine;
 public class FoodScript : MonoBehaviour
 {
     public bool boarFood, bullFood, kangFood;
+    public AudioClip collected; 
     //ScoreScript points; 
 
     // Use this for initialization
@@ -23,21 +24,21 @@ public class FoodScript : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Player") && boarFood == (true))
         {
-            print("yeet");
+            GameManager.instance.sfxSource.PlayOneShot(collected);
             GameManager.instance.AddScore(15);
             Destroy(gameObject);
         }
 
         if (col.gameObject.CompareTag("Player") && bullFood == (true))
         {
-            print("yeet2");
+            GameManager.instance.sfxSource.PlayOneShot(collected);
             GameManager.instance.AddScore(20);
             Destroy(gameObject);
         }
 
         if (col.gameObject.CompareTag("Player") && kangFood == (true))
         {
-            print("yeet3");
+            GameManager.instance.sfxSource.PlayOneShot(collected);
             GameManager.instance.AddScore(30);
             Destroy(gameObject);
         }

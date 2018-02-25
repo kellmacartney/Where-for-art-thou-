@@ -4,17 +4,21 @@ using UnityEngine;
 
 public class EnemyCollsion : MonoBehaviour
 {
+    
     public GameObject FoodPreFab;
-    public FoodScript Score;
+    public int Damage = 1;
+    
     public AudioClip KangarooDeath;
     public AudioClip BoarDeath;
     public AudioClip BullDeath;
-    public AudioClip Bullet; 
+    public AudioClip Bullet;
+    public AudioClip foodSpawn; 
 
     // Use this for initialization
     void Start ()
     {
-        Score = GetComponent<FoodScript>();
+        
+        
 	}
 	
 	// Update is called once per frame
@@ -27,7 +31,9 @@ public class EnemyCollsion : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Player") && gameObject.tag == ("Kangaroo"))
         {
-            SoundManager.instance.PlayOneShot(KangarooDeath);
+            GameManager.instance.sfxSource.PlayOneShot(foodSpawn);
+            GameManager.instance.health++;
+            GameManager.instance.sfxSource.PlayOneShot(KangarooDeath);
             GameObject newFood = (GameObject)Instantiate(FoodPreFab, col.transform.position, col.transform.rotation);
             newFood.GetComponent<FoodScript>().kangFood = true;
             Destroy(gameObject);
@@ -35,7 +41,8 @@ public class EnemyCollsion : MonoBehaviour
         }
         if (col.gameObject.CompareTag("Player") && gameObject.tag == ("Boar"))
         {
-            SoundManager.instance.PlayOneShot(BoarDeath);
+            GameManager.instance.health++;
+            GameManager.instance.sfxSource.PlayOneShot(BoarDeath);
             GameObject newFood = (GameObject)Instantiate(FoodPreFab, col.transform.position, col.transform.rotation);
             newFood.GetComponent<FoodScript>().boarFood = true;
             Destroy(gameObject);
@@ -43,23 +50,49 @@ public class EnemyCollsion : MonoBehaviour
 
         if (col.gameObject.CompareTag("Player") && gameObject.tag == ("Bull"))
         {
-            SoundManager.instance.PlayOneShot(BullDeath);
+            GameManager.instance.health++;
+            GameManager.instance.sfxSource.PlayOneShot(BullDeath);
             GameObject newFood = (GameObject)Instantiate(FoodPreFab, col.transform.position, col.transform.rotation);
             newFood.GetComponent<FoodScript>().bullFood = true;
             Destroy(gameObject);
 
         }
 
-        if(col.gameObject.CompareTag("Bullet"))
-        {
-            SoundManager.instance.PlayOneShot(Bullet);
-            Instantiate(FoodPreFab, col.transform.position, col.transform.rotation);
-            Destroy(gameObject);
-            Destroy(col.gameObject);
+        
 
+            if (col.gameObject.CompareTag("Bullet") && gameObject.tag == "Kangaroo")
+
+            {
+                GameManager.instance.sfxSource.PlayOneShot(KangarooDeath);
+                GameManager.instance.sfxSource.PlayOneShot(Bullet);
+                Instantiate(FoodPreFab, col.transform.position, col.transform.rotation);
+                Destroy(gameObject);
+                Destroy(col.gameObject);
+
+            }
+
+            if (col.gameObject.CompareTag("Bullet") && gameObject.tag == "Bull")
+            {
+                GameManager.instance.sfxSource.PlayOneShot(BullDeath);
+                GameManager.instance.sfxSource.PlayOneShot(Bullet);
+                Instantiate(FoodPreFab, col.transform.position, col.transform.rotation);
+                Destroy(gameObject);
+                Destroy(col.gameObject);
+
+            }
+
+            if (col.gameObject.CompareTag("Bullet") && gameObject.tag == "Boar")
+            {
+                GameManager.instance.sfxSource.PlayOneShot(KangarooDeath);
+                GameManager.instance.sfxSource.PlayOneShot(Bullet);
+                Instantiate(FoodPreFab, col.transform.position, col.transform.rotation);
+                Destroy(gameObject);
+                Destroy(col.gameObject);
+
+            }
         }
 
 
-    }
+    
 
 }
