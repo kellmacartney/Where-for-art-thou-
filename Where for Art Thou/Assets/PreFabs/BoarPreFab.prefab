@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4598986983351812}
   - component: {fileID: 212964931103385376}
   - component: {fileID: 114911891817129532}
-  - component: {fileID: 114939674624246972}
   - component: {fileID: 61207808864903076}
   - component: {fileID: 114608324180267202}
   - component: {fileID: 50264749343127566}
@@ -116,6 +115,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FoodPreFab: {fileID: 0}
   Score: {fileID: 0}
+  KangarooDeath: {fileID: 8300000, guid: 9733baae7ab39244d890e42cc0577944, type: 3}
+  BoarDeath: {fileID: 8300000, guid: 3454a756b9165644fa26895a957552a6, type: 3}
+  BullDeath: {fileID: 8300000, guid: 9733baae7ab39244d890e42cc0577944, type: 3}
+  Bullet: {fileID: 8300000, guid: 8bb96ac05641698488551563a988f6fc, type: 3}
 --- !u!114 &114911891817129532
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -129,18 +132,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   attackRange: 5
-  enemySpeed: 6
---- !u!114 &114939674624246972
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1350652709455624}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44e57411004732e4ea175f0b893bcc6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   enemySpeed: 6
 --- !u!212 &212964931103385376
 SpriteRenderer:

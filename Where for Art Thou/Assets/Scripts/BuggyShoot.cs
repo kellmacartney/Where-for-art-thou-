@@ -8,6 +8,7 @@ public class BuggyShoot : MonoBehaviour
     public GameObject BulletPreFab;
     public bool isfiring;
     public float fireRate;
+    public AudioClip fire; 
 
     // Use this for initialization
     void Start ()
@@ -42,6 +43,8 @@ public class BuggyShoot : MonoBehaviour
 
     public void ShootBullet()
     {//generates bullet
+
+        SoundManager.instance.PlayOneShot(fire);
         GameObject newBullet = (GameObject)Instantiate(BulletPreFab, spawnPoint.position, Quaternion.identity);
         Destroy(newBullet, newBullet.GetComponent<BulletScript>().LifeTime);
     }

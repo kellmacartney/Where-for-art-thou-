@@ -129,6 +129,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FoodPreFab: {fileID: 0}
   Score: {fileID: 0}
+  KangarooDeath: {fileID: 8300000, guid: 9733baae7ab39244d890e42cc0577944, type: 3}
+  BoarDeath: {fileID: 8300000, guid: 3454a756b9165644fa26895a957552a6, type: 3}
+  BullDeath: {fileID: 8300000, guid: 9733baae7ab39244d890e42cc0577944, type: 3}
+  Bullet: {fileID: 8300000, guid: 8bb96ac05641698488551563a988f6fc, type: 3}
 --- !u!212 &212974559832697520
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -165,7 +169,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: add3ae4851a82184da5dc4ed5990478a, type: 3}
   m_Color: {r: 0.9965398, g: 0.9411765, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}

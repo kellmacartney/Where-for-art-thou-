@@ -103,6 +103,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FoodPreFab: {fileID: 0}
   Score: {fileID: 0}
+  KangarooDeath: {fileID: 8300000, guid: 9733baae7ab39244d890e42cc0577944, type: 3}
+  BoarDeath: {fileID: 8300000, guid: 3454a756b9165644fa26895a957552a6, type: 3}
+  BullDeath: {fileID: 8300000, guid: 9733baae7ab39244d890e42cc0577944, type: 3}
+  Bullet: {fileID: 8300000, guid: 8bb96ac05641698488551563a988f6fc, type: 3}
 --- !u!114 &114070903983273584
 MonoBehaviour:
   m_ObjectHideFlags: 1

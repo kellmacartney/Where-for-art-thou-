@@ -7,17 +7,19 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-
     public int ScoreValue = 0;
     public Text scoreText;
 
+
     public static GameManager instance = null;
     public bool loadCredits;
-    public float nextLevel; 
+    public float nextLevel;
+    
 
     //Awake is always called before any Start functions
     void Awake()
     {
+       
         //Check if instance already exists
         if (instance == null)
 
@@ -37,8 +39,8 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if(scoreText != null)    
-        scoreText.text = "Score:" + ScoreValue.ToString();
+        if (scoreText != null)
+            scoreText.text = "Score:" + ScoreValue.ToString();
 
         if (ScoreValue >= 200f && !loadCredits)
         {
@@ -50,7 +52,7 @@ public class GameManager : MonoBehaviour
     public void AddScore(int points)
     {
         ScoreValue += points;
-       
+
     }
 
     private void Start()
@@ -59,4 +61,5 @@ public class GameManager : MonoBehaviour
         scoreText = GameObject.Find("ScoreText").GetComponent<Text>();
     }
 
+    
 }
