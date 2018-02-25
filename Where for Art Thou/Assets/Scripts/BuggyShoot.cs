@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BuggyShoot : MonoBehaviour
 {
+    public Animator anim;
+    public Animation Shoot;
     public Transform spawnPoint;
     public GameObject BulletPreFab;
     public bool isfiring;
@@ -13,6 +15,7 @@ public class BuggyShoot : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
+        anim = GetComponent<Animator>();
         StartCoroutine(BulletCooldown());
 	}
 	
@@ -43,7 +46,7 @@ public class BuggyShoot : MonoBehaviour
 
     public void ShootBullet()
     {//generates bullet
-
+        anim.Play("Shoot");
         GameManager.instance.sfxSource.PlayOneShot(fire);
         GameObject newBullet = (GameObject)Instantiate(BulletPreFab, spawnPoint.position, Quaternion.identity);
         Destroy(newBullet, newBullet.GetComponent<BulletScript>().LifeTime);

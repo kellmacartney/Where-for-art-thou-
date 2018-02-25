@@ -59,7 +59,7 @@ public class BuggyJump : MonoBehaviour
             if (transform.position.y > maxJumpHeight)
                 inputJump = false;
             if (inputJump)
-            transform.Translate(Vector3.up * jumpSpeed * Time.smoothDeltaTime);
+            transform.Translate(Vector3.up * jumpSpeed * Time.deltaTime);
 
             else if (!inputJump)
             {
