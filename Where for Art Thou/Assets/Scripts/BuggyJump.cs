@@ -29,48 +29,43 @@ public class BuggyJump : MonoBehaviour
 
 
     // Update is called once per frame
-    void Update ()
+    void Update()
     {
-        
         if (Input.GetKey(KeyCode.Space))
         {
-            if(grounded)
+            if (grounded)
             {
                 groundPos = transform.position;
                 inputJump = true;
-               
-               Jump();
-                
+                StartCoroutine("Jump");
             }
         }
         if (transform.position == groundPos)
-        grounded = true;
-        
+            grounded = true;
         else
-            grounded = false; 
-	}
+            grounded = false;
+    }
 
-    void Jump()
+    IEnumerator Jump()
     {
-        
         while (true)
         {
-            
             if (transform.position.y > maxJumpHeight)
                 inputJump = false;
             if (inputJump)
-            transform.Translate(Vector3.up * jumpSpeed * Time.deltaTime);
+                transform.Translate(Vector3.up * jumpSpeed * Time.smoothDeltaTime);
 
             else if (!inputJump)
             {
-                
                 transform.position = Vector3.Lerp(transform.position, groundPos, fallSpeed * Time.smoothDeltaTime);
             }
             if (transform.position == groundPos)
-                return;
-          
+                StopAllCoroutines();
+
+            yield return new WaitForEndOfFrame();
         }
-       
+
+
     }
-   
+
 }
