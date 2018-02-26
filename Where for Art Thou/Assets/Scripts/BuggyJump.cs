@@ -39,7 +39,7 @@ public class BuggyJump : MonoBehaviour
                 groundPos = transform.position;
                 inputJump = true;
                
-                StartCoroutine("Jump");
+               Jump();
                 
             }
         }
@@ -50,7 +50,7 @@ public class BuggyJump : MonoBehaviour
             grounded = false; 
 	}
 
-    IEnumerator Jump()
+    void Jump()
     {
         
         while (true)
@@ -63,13 +63,12 @@ public class BuggyJump : MonoBehaviour
 
             else if (!inputJump)
             {
-                //SoundManager.instance.PlayOneShot(jump);
+                
                 transform.position = Vector3.Lerp(transform.position, groundPos, fallSpeed * Time.smoothDeltaTime);
             }
             if (transform.position == groundPos)
-                StopAllCoroutines();
-
-            yield return new WaitForEndOfFrame();
+                return;
+          
         }
        
     }
